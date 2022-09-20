@@ -12,12 +12,5 @@ class HomePage extends StatelessWidget {
         builder: (context, state) => _scaffold(context, state));
   }
 
-  Widget _scaffold(BuildContext context, UserState state) => Scaffold(
-        body: Center(
-          child: Text(
-            "Hello",
-            style: const TextStyle(color: Colors.red, fontSize: 40.0),
-          ),
-        ),
-      );
+  Widget _scaffold(BuildContext context, UserState state) => Scaffold();
 }

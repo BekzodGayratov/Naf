@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "272104517978",
+    "project_id": "nafproject-ccea5",
+    "storage_bucket": "nafproject-ccea5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272104517978:android:1aeae9ed4d2b256a240363",
+        "android_client_info": {
+          "package_name": "naf.bekzod.naf.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272104517978-3032pg47e1fb6b69mtqdbk8elcv3qgk9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "naf.bekzod.naf.project",
+            "certificate_hash": "1cf6a6564f95965770a141c37754fa7d0d43e40b"
+          }
+        },
+        {
+          "client_id": "272104517978-aqe0f9k480pde7v5i1g7e0vkfl088v51.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7zNZ12nL8ch1XtuhBkHrpFjG-crfMCbs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "272104517978-aqe0f9k480pde7v5i1g7e0vkfl088v51.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

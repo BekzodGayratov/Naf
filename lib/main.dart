@@ -3,15 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive/core/constants/theme.dart';
 import 'package:responsive/cubit/home/user_cubit.dart';
-import 'package:responsive/cubit/splash/splash.state.dart';
 import 'package:responsive/router/router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  initializePackages();
+  await Firebase.initializeApp();
   runApp(MultiBlocProvider(providers: [
     BlocProvider(create: (context) => UserCubit()),
-    BlocProvider(create: (context) => SplashCubit()),
   ], child: MyApp()));
 }
 
@@ -27,8 +25,4 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: RouterGenerator.router.onGenerate,
     );
   }
-}
-
-void initializePackages() async {
-  await Firebase.initializeApp();
 }

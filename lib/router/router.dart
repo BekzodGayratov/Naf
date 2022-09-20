@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive/view/boarding/boarding_page.dart';
 import 'package:responsive/view/home/home_page.dart';
 import 'package:responsive/view/splash/splash_screen.dart';
 
@@ -12,6 +13,8 @@ class RouterGenerator {
         return navigate(HomePage());
       case 'splash':
         return navigate(SplashScreen());
+      case 'boarding':
+        return navigate(BoardingPage());
     }
     return null;
   }
