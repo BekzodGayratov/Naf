@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:responsive/core/constants/theme.dart';
 import 'package:responsive/cubit/auth/sign_in/sign_in_state.dart';
 import 'package:responsive/cubit/home/user_cubit.dart';
@@ -12,7 +11,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await EasyLocalization.ensureInitialized();
-  await setDefaultLang();
+
   runApp(MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => UserCubit()),
@@ -20,12 +19,12 @@ void main() async {
       ],
       child: EasyLocalization(
           saveLocale: true,
-          child: MyApp(),
           supportedLocales: const [
             Locale('uz'),
             Locale('en'),
           ],
-          path: "lib/lang")));
+          path: "lib/lang",
+          child: const MyApp())));
 }
 
 class MyApp extends StatelessWidget {
@@ -42,11 +41,5 @@ class MyApp extends StatelessWidget {
       initialRoute: 'splash',
       onGenerateRoute: RouterGenerator.router.onGenerate,
     );
-  }
-}
-
-setDefaultLang() async {
-  if (GetStorage().read('lang') == null) {
-    await GetStorage().write('lang', 'uz');
   }
 }

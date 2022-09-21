@@ -1,5 +1,3 @@
-import 'package:responsive/data/model/user_model.dart';
-
 abstract class UserState {
   UserState();
 }
@@ -13,8 +11,7 @@ class UserLoadingState extends UserState {
 }
 
 class UserCompleteState extends UserState {
-  List<UserModel> data;
-  UserCompleteState(this.data);
+  UserCompleteState();
 }
 
 class UserErrorState extends UserState {

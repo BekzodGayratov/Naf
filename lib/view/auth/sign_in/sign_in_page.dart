@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:responsive/core/widgets/headline_two_text.dart';
 import 'package:responsive/core/widgets/standart_padding.dart';
 import 'package:responsive/core/widgets/text_form_field.dart';
 import 'package:responsive/cubit/auth/sign_in/sign_in_state.dart';
@@ -25,6 +26,7 @@ class SignInPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextFormFieldWidget(
+                hintText: "email".tr(),
                 controller: context.watch<SignInCubit>().emailController,
               ),
             ],
