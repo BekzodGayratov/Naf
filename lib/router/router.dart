@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:responsive/view/boarding/boarding_page.dart';
+import 'package:responsive/view/auth/sign_in/sign_in_page.dart';
+import 'package:responsive/view/auth/sign_up/sign_up_page.dart';
 import 'package:responsive/view/home/home_page.dart';
 import 'package:responsive/view/splash/splash_screen.dart';
 
@@ -13,8 +14,10 @@ class RouterGenerator {
         return navigate(HomePage());
       case 'splash':
         return navigate(SplashScreen());
-      case 'boarding':
-        return navigate(BoardingPage());
+      case 'sign_in':
+        return navigate(SignInPage());
+      case 'sign_up':
+        return navigate(SignUpPage());
     }
     return null;
   }
