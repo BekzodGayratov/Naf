@@ -1,5 +1,11 @@
 {
     "email":"Elektron pochta",
     "password":"Parol",
-    "signIn":"Kirish"
+    "signIn":"Kirish",
+    "signUp":"Ro'yhatdan o'tish",
+    "logged":"Foydalanuvchi avval ro'yhatdan o'tgan",
+    "notRegister":"Foydalanuvchi avval ro'yhatdan o'tmagan",
+    "wrongPass":"Parol xato kiritildi",
+    "alreadyGet":"Bu email allaqachon ro'yhatdan o'tgan",
+    "weakPass":"Parol juda kuchsiz"
 }

@@ -5,26 +5,42 @@ import 'package:responsive/core/extensions/media_query_ext.dart';
 import 'package:responsive/core/widgets/next_button.dart';
 import 'package:responsive/core/widgets/standart_padding.dart';
 import 'package:responsive/core/widgets/text_form_field.dart';
-import 'package:responsive/cubit/auth/sign_in/sign_in_state.dart';
+import 'package:responsive/cubit/auth/sign_up/sign_up_state.dart';
+import 'package:responsive/helpers/alert_widget.dart';
+import 'package:responsive/helpers/loading_widget.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SignInCubit, SignInState>(
+    return BlocConsumer<SignUpCubit, SignUpState>(
+        listener: (context, state) {
+          if (state is SignUpErrorState) {
+            showNafAlert(state.error);
+          } else if (state is SignUpCompleteState) {
+            Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+          }
+        },
         builder: (context, state) => _scaffold(context, state));
   }
 
-  Scaffold _scaffold(BuildContext context, SignInState state) => Scaffold(
+  Scaffold _scaffold(BuildContext context, SignUpState state) => Scaffold(
+        appBar: AppBar(),
         resizeToAvoidBottomInset: true,
         body: SafeArea(child: _signInForm(context, state)),
         floatingActionButton: StandartPadding(
-            child: NextButton(child: Text("Hello"), onPressed: () {})),
+            child: NextButton(
+                child: state is SignUpLoadingState
+                    ? const LoadingWidget()
+                    : Text("signUp".tr()),
+                onPressed: () {
+                  context.read<SignUpCubit>().signUp();
+                })),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       );
 
-  Form _signInForm(BuildContext context, SignInState state) => Form(
+  Form _signInForm(BuildContext context, SignUpState state) => Form(
         child: StandartPadding(
           child: Column(
             children: [
@@ -36,7 +52,7 @@ class SignUpPage extends StatelessWidget {
                   children: [
                     TextFormFieldWidget(
                       hintText: "email".tr(),
-                      controller: context.watch<SignInCubit>().emailController,
+                      controller: context.watch<SignUpCubit>().emailController,
                     ),
                     SizedBox(
                       height: context.height * 0.01,
@@ -44,7 +60,7 @@ class SignUpPage extends StatelessWidget {
                     TextFormFieldWidget(
                         hintText: "password".tr(),
                         controller:
-                            context.watch<SignInCubit>().passwordController)
+                            context.watch<SignUpCubit>().passwordController)
                   ],
                 ),
               ),

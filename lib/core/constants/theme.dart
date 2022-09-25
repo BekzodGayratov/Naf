@@ -4,6 +4,7 @@ class NafTheme {
   static const Color itemColor = Color(0xff000000);
   static ThemeData them = ThemeData(
     scaffoldBackgroundColor: const Color(0xffE5E5E5),
+    appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent,elevation: 0,iconTheme: IconThemeData(color: itemColor)),
     cardColor: const Color(0xffFFFFFF),
     textTheme: const TextTheme(
       headline1: TextStyle(

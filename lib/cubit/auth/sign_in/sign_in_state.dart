@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -23,5 +22,6 @@ class SignInCompleteState extends SignInState {
 }
 
 class SignInErrorState extends SignInState {
-  SignInErrorState();
+  String error;
+  SignInErrorState(this.error);
 }
