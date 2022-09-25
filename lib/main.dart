@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive/core/constants/theme.dart';
 import 'package:responsive/cubit/auth/sign_in/sign_in_state.dart';
+import 'package:responsive/cubit/auth/sign_up/sign_up_state.dart';
 import 'package:responsive/cubit/home/user_cubit.dart';
 import 'package:responsive/router/router.dart';
 
@@ -16,6 +17,7 @@ void main() async {
       providers: [
         BlocProvider(create: (context) => UserCubit()),
         BlocProvider(create: (context) => SignInCubit()),
+        BlocProvider(create: (context) => SignUpCubit()),
       ],
       child: EasyLocalization(
           saveLocale: true,

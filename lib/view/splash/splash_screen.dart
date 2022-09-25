@@ -27,11 +27,12 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void checkUser() {
-    FirebaseAuth currentUser = FirebaseAuth.instance;
-    if (currentUser.currentUser != null) {
-      Navigator.pushNamedAndRemoveUntil(context, "/", (route) => false);
-    } else {
-      Navigator.pushNamedAndRemoveUntil(context, "sign_in", (route) => false);
-    }
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user != null) {
+        Navigator.pushNamedAndRemoveUntil(context, "/", (route) => false);
+      } else {
+        Navigator.pushNamedAndRemoveUntil(context, "sign_in", (route) => false);
+      }
+    });
   }
 }

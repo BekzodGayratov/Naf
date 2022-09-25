@@ -1,5 +1,7 @@
 
 import 'package:bloc/bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 part 'sign_in_cubit.dart';

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive/cubit/home/user_cubit.dart';
@@ -12,5 +13,9 @@ class HomePage extends StatelessWidget {
         builder: (context, state) => _scaffold(context, state));
   }
 
-  Widget _scaffold(BuildContext context, UserState state) => Scaffold();
+  Widget _scaffold(BuildContext context, UserState state) => Scaffold(
+        floatingActionButton: FloatingActionButton(onPressed: () async {
+          await FirebaseAuth.instance.signOut();
+        }),
+      );
 }

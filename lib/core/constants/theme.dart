@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NafTheme {
+  static const Color itemColor = Color(0xff000000);
   static ThemeData them = ThemeData(
     scaffoldBackgroundColor: const Color(0xffE5E5E5),
     cardColor: const Color(0xffFFFFFF),

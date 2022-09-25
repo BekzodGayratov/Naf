@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive/core/constants/theme.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
   final TextEditingController controller;
@@ -16,6 +17,8 @@ class TextFormFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
+      cursorColor: NafTheme.itemColor,
       keyboardType: textInputType,
       decoration: InputDecoration(
         filled: true,
