@@ -17,5 +17,7 @@ class HomePage extends StatelessWidget {
         floatingActionButton: FloatingActionButton(onPressed: () async {
           await FirebaseAuth.instance.signOut();
         }),
+        body: Center(
+            child: Text(FirebaseAuth.instance.currentUser!.email.toString())),
       );
 }

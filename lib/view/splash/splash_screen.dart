@@ -23,6 +23,12 @@ class _SplashScreenState extends State<SplashScreen> {
       appBar: AppBar(
         title: const Text("Splash"),
       ),
+      body: const Center(
+        child: Text(
+          "Hello",
+          style: TextStyle(fontSize: 50.0),
+        ),
+      ),
     );
   }
 

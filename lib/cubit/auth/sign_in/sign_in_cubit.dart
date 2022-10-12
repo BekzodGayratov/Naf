@@ -23,6 +23,7 @@ class SignInCubit extends Cubit<SignInState> {
       }
     }
   }
+
   clearFields() {
     emailController.clear();
     passwordController.clear();
