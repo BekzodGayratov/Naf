@@ -7,5 +7,7 @@
     "notRegister":"Foydalanuvchi avval ro'yhatdan o'tmagan",
     "wrongPass":"Parol xato kiritildi",
     "alreadyGet":"Bu email allaqachon ro'yhatdan o'tgan",
-    "weakPass":"Parol juda kuchsiz"
+    "weakPass":"Parol juda kuchsiz",
+    "search":"Qidirish",
+    "orderOnline":"Do'konda onlayn to'plamga buyurtma bering"
 }

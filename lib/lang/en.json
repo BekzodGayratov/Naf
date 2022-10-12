@@ -7,5 +7,7 @@
     "notRegister":"The current user not registered before",
     "wrongPass":"The password was entered incorrectly",
     "alreadyGet":"The email already in use",
-    "weakPass":"Password is too weak"
+    "weakPass":"Password is too weak",
+    "search":"Search",
+    "orderOnline":"Order online collect in store"
 }
