@@ -46,10 +46,13 @@ dependencies:
   firebase_core: ^1.22.0
   easy_localization: ^3.0.1
   get_storage: ^2.0.3
+  image_picker: ^0.8.6
+  path_provider: ^2.0.11
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
