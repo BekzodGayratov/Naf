@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class HeadlineTwoText extends StatelessWidget {
   final String text;
   final TextAlign? textAlign;
-  const HeadlineTwoText({super.key, required this.text, this.textAlign});
+  final Color? color;
+  const HeadlineTwoText({super.key, required this.text, this.textAlign,this.color});
 
   @override
   Widget build(BuildContext context) {

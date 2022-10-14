@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive/core/constants/theme.dart';
 import 'package:responsive/cubit/auth/sign_in/sign_in_state.dart';
 import 'package:responsive/cubit/auth/sign_up/sign_up_state.dart';
-import 'package:responsive/cubit/home/user_cubit.dart';
+import 'package:responsive/cubit/home/home_cubit.dart';
 import 'package:responsive/router/router.dart';
 
 void main() async {
@@ -15,7 +15,7 @@ void main() async {
 
   runApp(MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => UserCubit()),
+        BlocProvider(create: (context) => HomeCubit()),
         BlocProvider(create: (context) => SignInCubit()),
         BlocProvider(create: (context) => SignUpCubit()),
       ],

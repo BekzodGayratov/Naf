@@ -7,7 +7,8 @@ class FirebaseStorageService {
   static Future<void> uploadImage(File image) async {
     try {
       String fileName = basename(image.path);
-      final storageRef = FirebaseStorage.instance.ref().child(fileName);
+      final storageRef =
+          FirebaseStorage.instance.ref().child("images/$fileName");
       final uploadTask = storageRef.putFile(image);
       await uploadTask.whenComplete(
         () => showNafAlert("Picture uploaded"),

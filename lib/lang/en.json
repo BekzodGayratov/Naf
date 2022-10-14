@@ -9,5 +9,8 @@
     "alreadyGet":"The email already in use",
     "weakPass":"Password is too weak",
     "search":"Search",
-    "orderOnline":"Order online collect in store"
+    "orderOnline":"Order online collect in store",
+    "computers":"Computers",
+    "smartphones":"Smartphones",
+    "monitors":"Monitors"
 }
