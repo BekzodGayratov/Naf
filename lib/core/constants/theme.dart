@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class NafTheme {
   static const Color itemColor = Color(0xff000000);
   static const Color iconColor = Color(0xff5956E9);
+  static const Color backgroundColor = Color(0xffE5E5E5);
   static ThemeData them = ThemeData(
     scaffoldBackgroundColor: const Color(0xffE5E5E5),
     appBarTheme: const AppBarTheme(

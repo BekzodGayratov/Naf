@@ -12,5 +12,11 @@
     "orderOnline":"Order online collect in store",
     "computers":"Computers",
     "smartphones":"Smartphones",
-    "monitors":"Monitors"
+    "monitors":"Monitors",
+    "productName":"Enter product name",
+    "productImage":"Maxsulot rasmini tanlang",
+    "selectImage":"Select image",
+    "selectFromCamera":"From camera",
+    "selectFromGallery":"From gallery",
+    "upload":"Upload"
 }

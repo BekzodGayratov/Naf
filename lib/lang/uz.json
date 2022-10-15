@@ -12,5 +12,11 @@
     "orderOnline":"Do'konda onlayn to'plamga buyurtma bering",
     "computers":"Komputerlar",
     "smartphones":"Telefonlar",
-    "monitors":"Monitorlar"
+    "monitors":"Monitorlar",
+    "productName":"Maxsulot nomini kiriting",
+    "productImage":"Maxsulot rasmini tanlang",
+    "selectImage":"Rasmni tanlang",
+    "selectFromCamera":"Kameradan foydalanish",
+    "selectFromGallery":"Gallareyadan tanlash",
+    "upload":"Yuklash"
 }

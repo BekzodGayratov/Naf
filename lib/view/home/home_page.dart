@@ -6,6 +6,8 @@ import 'package:responsive/core/widgets/search_text_form_widget.dart';
 import 'package:responsive/core/widgets/standart_padding.dart';
 import 'package:responsive/cubit/home/home_cubit.dart';
 import 'package:responsive/cubit/home/home_state.dart';
+import 'package:responsive/helpers/add_product_widget.dart';
+import 'package:responsive/service/remote/firestore_service.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -20,6 +22,9 @@ class HomePage extends StatelessWidget {
         drawer: const Drawer(),
         appBar: AppBar(),
         body: _body(context),
+        floatingActionButton: FloatingActionButton(onPressed: () {
+          showAddProductModelSheet(context);
+        }),
       );
 
   Widget _body(BuildContext context) {

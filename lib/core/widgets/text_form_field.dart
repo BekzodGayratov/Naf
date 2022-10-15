@@ -6,7 +6,6 @@ class TextFormFieldWidget extends StatelessWidget {
   final String? hintText;
   final TextInputType? textInputType;
   final Function(String v)? onChanged;
- 
 
   const TextFormFieldWidget(
       {super.key,
@@ -31,13 +30,13 @@ class TextFormFieldWidget extends StatelessWidget {
             fontWeight: FontWeight.w400,
             color: Color(0xffCCCDD6)),
         enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(25.0),
             borderSide: BorderSide.none),
         errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(25.0),
             borderSide: const BorderSide(color: Colors.red)),
         focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(25.0),
             borderSide: BorderSide.none),
       ),
       onChanged: onChanged,
