@@ -1,14 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:responsive/helpers/alert_widget.dart';
 
 class FirestoreService {
-  CollectionReference products =
+  static CollectionReference products =
       FirebaseFirestore.instance.collection("products");
 
-  writeData(
+  static writeData(
       {required String productName, required String productImagePath}) async {
     try {
       await products.add({"name": productName, "image": productImagePath});
+      showNafAlert("productAdded".tr());
     } on FirebaseException catch (e) {
       showNafAlert(e.message.toString());
     }

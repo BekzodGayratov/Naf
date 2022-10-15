@@ -7,7 +7,6 @@ class HomeCubit extends Cubit<HomeState> {
 
   // To add new product
   TextEditingController productNameController = TextEditingController();
-  TextEditingController productImagePathController = TextEditingController();
 
   // User logic here...
 

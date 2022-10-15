@@ -18,5 +18,6 @@
     "selectImage":"Select image",
     "selectFromCamera":"From camera",
     "selectFromGallery":"From gallery",
-    "upload":"Upload"
+    "upload":"Upload",
+    "productAdded":"The product added successfully"
 }

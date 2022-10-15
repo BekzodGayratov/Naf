@@ -1,12 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:responsive/core/constants/theme.dart';
 import 'package:responsive/core/extensions/media_query_ext.dart';
 import 'package:responsive/core/widgets/standart_padding.dart';
 import 'package:responsive/core/widgets/text_form_field.dart';
 import 'package:responsive/cubit/home/home_cubit.dart';
 import 'package:responsive/service/local/image_picker_service.dart';
+import 'package:responsive/service/remote/firebase_storage_service.dart';
+import 'package:responsive/service/remote/firestore_service.dart';
 
 showAddProductModelSheet(BuildContext context) {
   return showModalBottomSheet(
@@ -104,11 +107,7 @@ class _ImagePickerWidgetState extends State<_ImagePickerWidget> {
               )
             : ElevatedButton(
                 onPressed: () async {
-                  await ImagePickerService.selectImage(
-                      ImagePickerService.gallery);
-                  setState(() {
-                    isUploaded = true;
-                  });
+                  uploadData();
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -125,5 +124,17 @@ class _ImagePickerWidgetState extends State<_ImagePickerWidget> {
   void dispose() {
     ImagePickerService.selectedImage = null;
     super.dispose();
+  }
+
+  void uploadData() async {
+    await FirebaseStorageService.uploadImage(
+        ImagePickerService.selectedImage!, "products");
+    await FirestoreService.writeData(
+        productName:
+            // ignore: use_build_context_synchronously
+            BlocProvider.of<HomeCubit>(context, listen: false)
+                .productNameController
+                .text,
+        productImagePath: FirebaseStorageService.uploadedFilePath);
   }
 }
