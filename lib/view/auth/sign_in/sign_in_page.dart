@@ -20,8 +20,7 @@ class SignInPage extends StatelessWidget {
           if (state is SignInErrorState) {
             showNafAlert(state.error);
           } else if (state is SignInCompleteState) {
-            Navigator.restorablePushNamedAndRemoveUntil(
-                context, '/', (route) => false);
+            Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
           }
         },
         builder: (context, state) => _scaffold(context, state));

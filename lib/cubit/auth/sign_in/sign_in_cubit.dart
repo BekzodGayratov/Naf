@@ -6,7 +6,7 @@ class SignInCubit extends Cubit<SignInState> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  signIn() async {
+  void signIn() async {
     emit(SignInLoadingState());
     emit(state);
     try {
@@ -24,7 +24,7 @@ class SignInCubit extends Cubit<SignInState> {
     }
   }
 
-  clearFields() {
+  deavtiveFields() {
     emailController.clear();
     passwordController.clear();
   }

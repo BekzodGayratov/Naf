@@ -6,7 +6,6 @@ import 'package:responsive/core/widgets/search_text_form_widget.dart';
 import 'package:responsive/core/widgets/standart_padding.dart';
 import 'package:responsive/cubit/home/home_cubit.dart';
 import 'package:responsive/cubit/home/home_state.dart';
-import 'package:responsive/view/home/utils/tabs_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -23,42 +22,42 @@ class HomePage extends StatelessWidget {
         body: _body(context),
       );
 
-  StandartPadding _body(BuildContext context) {
-    return StandartPadding(
-      child: Column(
-        children: [
-          Expanded(
-            flex: 1,
-            child: SearchTextFormWidget(
-              prefixIcon: const Icon(
-                Icons.search,
-                color: Color(0xffCCCDD6),
-              ),
-              hintText: "search".tr(),
+  Widget _body(BuildContext context) {
+    return Column(
+      children: [
+        StandartPadding(
+          child: SearchTextFormWidget(
+            prefixIcon: const Icon(
+              Icons.search,
+              color: Color(0xffCCCDD6),
             ),
+            hintText: "search".tr(),
           ),
-          Expanded(
-            flex: 3,
-            child: Padding(
-              padding: EdgeInsets.only(top: context.height * 0.01),
-              child: Text(
-                "orderOnline".tr(),
-                style: const TextStyle(
-                    fontSize: 32.0, fontWeight: FontWeight.w500),
-                maxLines: 2,
-              ),
-            ),
+        ),
+        SizedBox(
+          height: context.height * 0.05,
+        ),
+        SizedBox(
+          height: context.height * 0.4,
+          child: SizedBox(
+            height: context.height * 0.25,
+            width: double.infinity,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin:
+                        EdgeInsets.symmetric(horizontal: context.width * 0.05),
+                    width: context.width * 0.5,
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
+                  );
+                }),
           ),
-          const Expanded(
-              flex: 3,
-              child: DefaultTabController(length: 3, child: TabsWidget())),
-          Expanded(
-            flex: 3,
-            child: ListView.builder(itemBuilder: (context, index) {
-            return Container();
-          }))
-        ],
-      ),
+        )
+      ],
     );
   }
 }

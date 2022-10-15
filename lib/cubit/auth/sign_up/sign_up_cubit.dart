@@ -6,7 +6,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  signUp() async {
+  void signUp() async {
     emit(SignUpLoadingState());
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
