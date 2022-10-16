@@ -51,6 +51,13 @@ class SignUpPage extends StatelessWidget {
                 child: Column(
                   children: [
                     TextFormFieldWidget(
+                      hintText: "name".tr(),
+                      controller: context.watch<SignUpCubit>().nameController,
+                    ),
+                    SizedBox(
+                      height: context.height * 0.01,
+                    ),
+                    TextFormFieldWidget(
                       hintText: "email".tr(),
                       controller: context.watch<SignUpCubit>().emailController,
                     ),

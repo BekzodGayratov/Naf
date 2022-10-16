@@ -19,5 +19,7 @@
     "selectFromCamera":"Kameradan foydalanish",
     "selectFromGallery":"Gallareyadan tanlash",
     "upload":"Yuklash",
-    "productAdded":"Mahsulot muvoffaqiyatli qo'shildi"
+    "productAdded":"Mahsulot muvoffaqiyatli qo'shildi",
+    "fullName":"To'liq ism",
+    "name":"Ismingiz"
 }

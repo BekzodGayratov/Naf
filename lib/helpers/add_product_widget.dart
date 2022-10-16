@@ -127,7 +127,7 @@ class _ImagePickerWidgetState extends State<_ImagePickerWidget> {
   }
 
   void uploadData() async {
-    await FirebaseStorageService.uploadImage(
+    await FirebaseStorageService.uploadFile(
         ImagePickerService.selectedImage!, "products");
     await FirestoreService.writeData(
         productName:

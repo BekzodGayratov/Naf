@@ -5,13 +5,16 @@ import 'package:responsive/helpers/alert_widget.dart';
 
 class FirebaseStorageService {
   static String uploadedFilePath = "";
-  static Future<void> uploadImage(File image, String folderName) async {
+  static Future<void> uploadFile(File file, String folderName) async {
     try {
-      String fileName = basename(image.path);
-      final storageRef =
-          FirebaseStorage.instance.ref().child("${folderName}images/$fileName");
-      await storageRef.putFile(image);
-      uploadedFilePath = storageRef.fullPath;
+      String fileName = basename(file.path);
+      var snapshot = await FirebaseStorage.instance
+          .ref()
+          .child("$folderName/images/$fileName")
+          .putFile(file);
+      uploadedFilePath = await snapshot.ref.getDownloadURL();
+
+      //await storageRef.putFile(image);
     } on FirebaseException catch (e) {
       showNafAlert(e.message.toString());
     }
