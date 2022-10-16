@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -44,43 +45,65 @@ class HomePage extends StatelessWidget {
           height: context.height * 0.05,
         ),
         SizedBox(
-          height: context.height * 0.4,
-          child: SizedBox(
-            height: context.height * 0.25,
-            width: double.infinity,
-            child: StreamBuilder<QuerySnapshot>(
-                stream: context.watch<HomeCubit>().productsStream,
-                builder: (BuildContext context,
-                    AsyncSnapshot<QuerySnapshot> snapshot) {
-                  if (snapshot.hasError) {
-                    return const Center(child: Text("Something went wrong"));
-                  } else if (!snapshot.hasData) {
-                    return const Center(
-                      child: CircularProgressIndicator.adaptive(),
-                    );
-                  }
-
-                  return ListView(
-                    scrollDirection: Axis.horizontal,
-                    children:
-                        snapshot.data!.docs.map((DocumentSnapshot document) {
-                      Map<String, dynamic> data =
-                          document.data() as Map<String, dynamic>;
-                      return Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: context.width * 0.05),
-                        width: context.width * 0.5,
-                        decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(25.0),
-                            image: DecorationImage(
-                                image: NetworkImage(data['image']),
-                                fit: BoxFit.fill)),
-                      );
-                    }).toList(),
+          height: context.height * 0.38,
+          child: StreamBuilder<QuerySnapshot>(
+              stream: context.watch<HomeCubit>().productsStream,
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (snapshot.hasError) {
+                  return const Center(child: Text("Something went wrong"));
+                } else if (!snapshot.hasData) {
+                  return const Center(
+                    child: CircularProgressIndicator.adaptive(),
                   );
-                }),
-          ),
+                }
+
+                List<Map<String, dynamic>> data = [];
+                snapshot.data!.docs.map((DocumentSnapshot document) {
+                  data.add(document.data() as Map<String, dynamic>);
+                }).toList();
+                return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Stack(
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(
+                                  top: context.height * 0.06,
+                                  left: context.width * 0.03,
+                                  right: context.width * 0.03),
+                              height: context.height * 0.3,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                  boxShadow: const [
+                                    BoxShadow(
+                                        blurRadius: 3.0,
+                                        offset: Offset(0.0, 0.0),
+                                        color: Color(0xffE8E8E8))
+                                  ],
+                                  color: const Color(0xffFFFFFF),
+                                  borderRadius: BorderRadius.circular(25.0)),
+                            ),
+                          ],
+                        ),
+                        Positioned(
+                            left: 0,
+                            right: 0,
+                            child: CircleAvatar(
+                              radius: 70,
+                              backgroundImage: data[index]['image'] != null
+                                  ? CachedNetworkImageProvider(
+                                      data[index]['image'])
+                                  : null,
+                            ))
+                      ],
+                    );
+                  },
+                  itemCount: snapshot.data!.docs.length,
+                );
+              }),
         )
       ],
     );

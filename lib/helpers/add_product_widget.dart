@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:responsive/core/constants/theme.dart';
 import 'package:responsive/core/extensions/media_query_ext.dart';
@@ -13,6 +14,7 @@ import 'package:responsive/service/remote/firestore_service.dart';
 
 showAddProductModelSheet(BuildContext context) {
   return showModalBottomSheet(
+      isScrollControlled: true,
       backgroundColor: Colors.transparent,
       elevation: 0,
       context: context,
@@ -24,13 +26,27 @@ showAddProductModelSheet(BuildContext context) {
           child: StandartPadding(
             child: Column(
               children: [
-                SizedBox(
-                  height: context.height * 0.05,
-                ),
+                SvgPicture.asset("assets/product/upload.svg"),
                 TextFormFieldWidget(
                     hintText: "productName".tr(),
                     controller:
                         context.watch<HomeCubit>().productNameController),
+                TextFormFieldWidget(
+                    contentPadding: EdgeInsets.only(
+                        top: context.height * 0.2,
+                        left: context.width * 0.03,
+                        right: context.width * 0.03),
+                    hintText: "productDesc".tr(),
+                    controller:
+                        context.watch<HomeCubit>().productDescController),
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(vertical: context.height * 0.02),
+                  child: TextFormFieldWidget(
+                      hintText: "productCost".tr(),
+                      controller:
+                          context.watch<HomeCubit>().productCostController),
+                ),
                 TextButton(
                     onPressed: () {
                       showDialog(

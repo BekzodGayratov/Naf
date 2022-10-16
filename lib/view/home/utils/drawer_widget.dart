@@ -19,7 +19,10 @@ class DrawerWidget extends StatelessWidget {
                     ? NetworkImage(_user.currentUser!.photoURL!)
                     : null,
                 child: _user.currentUser!.photoURL == null
-                    ? Text(_user.currentUser!.displayName.toString())
+                    ? Text(
+                        _user.currentUser!.displayName.toString()[0],
+                        style: const TextStyle(fontSize: 30.0),
+                      )
                     : null,
               ),
               accountName: Text(

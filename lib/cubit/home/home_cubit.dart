@@ -8,6 +8,8 @@ class HomeCubit extends Cubit<HomeState> {
 
   // To add new product
   TextEditingController productNameController = TextEditingController();
+  TextEditingController productDescController = TextEditingController();
+  TextEditingController productCostController = TextEditingController();
 
   // Firestore
   final Stream<QuerySnapshot> productsStream =

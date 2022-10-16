@@ -14,6 +14,8 @@
     "smartphones":"Smartphones",
     "monitors":"Monitors",
     "productName":"Enter product name",
+    "productDesc":"About the product",
+    "productCost":"Product cost",
     "productImage":"Maxsulot rasmini tanlang",
     "selectImage":"Select image",
     "selectFromCamera":"From camera",
