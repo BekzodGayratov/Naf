@@ -20,8 +20,10 @@
     "selectImage":"Rasmni tanlang",
     "selectFromCamera":"Kameradan foydalanish",
     "selectFromGallery":"Gallareyadan tanlash",
-    "upload":"Yuklash",
+    "upload":"E'lon berish",
     "productAdded":"Mahsulot muvoffaqiyatli qo'shildi",
     "fullName":"To'liq ism",
-    "name":"Ismingiz"
+    "name":"Ismingiz",
+    "ok":"Tasdiqlash",
+    "notFilled":"Bo'sh qoldirmang"
 }

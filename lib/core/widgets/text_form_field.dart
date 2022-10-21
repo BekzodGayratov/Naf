@@ -8,6 +8,8 @@ class TextFormFieldWidget extends StatelessWidget {
   final Function(String v)? onChanged;
   final EdgeInsets? contentPadding;
   final int? maxLine;
+  final Widget? suffixIcon;
+  final String? Function(String?)? validator;
 
   const TextFormFieldWidget(
       {super.key,
@@ -16,16 +18,20 @@ class TextFormFieldWidget extends StatelessWidget {
       this.hintText,
       this.onChanged,
       this.contentPadding,
-      this.maxLine});
+      this.maxLine,
+      this.validator,
+      this.suffixIcon});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
       maxLines: maxLine,
       controller: controller,
       cursorColor: NafTheme.itemColor,
       keyboardType: textInputType,
       decoration: InputDecoration(
+        suffixIcon: suffixIcon,
         contentPadding: contentPadding,
         filled: true,
         fillColor: Colors.white,

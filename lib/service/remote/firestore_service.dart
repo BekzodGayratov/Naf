@@ -7,9 +7,17 @@ class FirestoreService {
       FirebaseFirestore.instance.collection("products");
 
   static writeData(
-      {required String productName, required String productImagePath}) async {
+      {required String productName,
+      required String productDesc,
+      required String productCost,
+      required String productImagePath}) async {
     try {
-      await products.add({"name": productName, "image": productImagePath});
+      await products.add({
+        "name": productName,
+        "about": productDesc,
+        "cost": productCost,
+        "image": productImagePath
+      });
       showNafAlert("productAdded".tr());
     } on FirebaseException catch (e) {
       showNafAlert(e.message.toString());

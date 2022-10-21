@@ -11,6 +11,8 @@ class HomeCubit extends Cubit<HomeState> {
   TextEditingController productDescController = TextEditingController();
   TextEditingController productCostController = TextEditingController();
 
+  final formKey = GlobalKey<FormState>();
+
   // Firestore
   final Stream<QuerySnapshot> productsStream =
       FirebaseFirestore.instance.collection('products').snapshots();

@@ -20,8 +20,10 @@
     "selectImage":"Select image",
     "selectFromCamera":"From camera",
     "selectFromGallery":"From gallery",
-    "upload":"Upload",
+    "upload":"Announce",
     "productAdded":"The product added successfully",
     "fullName":"Full name",
-    "name":"Name"
+    "name":"Name",
+    "ok":"Confirm",
+    "notFilled":"Do not empty"
 }
