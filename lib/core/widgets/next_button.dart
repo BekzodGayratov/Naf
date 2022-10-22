@@ -5,7 +5,12 @@ import 'package:responsive/core/extensions/media_query_ext.dart';
 class NextButton extends StatelessWidget {
   final Widget child;
   final VoidCallback onPressed;
-  const NextButton({super.key, required this.child, required this.onPressed});
+  final Color? backgroundColor;
+  const NextButton(
+      {super.key,
+      required this.child,
+      required this.onPressed,
+      this.backgroundColor});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +19,7 @@ class NextButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            backgroundColor: NafTheme.itemColor,
+            backgroundColor: backgroundColor ?? NafTheme.itemColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0))),
         onPressed: onPressed,

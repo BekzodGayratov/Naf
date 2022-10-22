@@ -1,8 +1,8 @@
 {   
     "email":"Email",
     "password":"Password",
-    "signIn":"Sign in",
-    "signUp":"Sign up",
+    "signIn":"Login",
+    "signUp":"Create account",
     "logged":"The current user has already logged in",
     "notRegister":"The current user not registered before",
     "wrongPass":"The password was entered incorrectly",

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive/core/constants/theme.dart';
 import 'package:responsive/core/extensions/media_query_ext.dart';
+import 'package:responsive/core/widgets/next_button.dart';
 import 'package:responsive/core/widgets/standart_padding.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -55,18 +56,21 @@ class SplashScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: SizedBox(
-          width: double.infinity,
-          height: context.height * 0.07,
-          child: StandartScreenPadding(
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.white),
-                  onPressed: () {
-                    checkUser(context);
-                  },
-                  child: Text(
-                    "start".tr(),
-                    style: const TextStyle(color: NafTheme.iconColor),
-                  )))),
+        width: double.infinity,
+        height: context.height * 0.07,
+        child: StandartScreenPadding(
+          child: NextButton(
+            onPressed: () {
+              checkUser(context);
+            },
+            backgroundColor: Colors.white,
+            child: Text(
+              "start".tr(),
+              style: const TextStyle(color: NafTheme.iconColor),
+            ),
+          ),
+        ),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }

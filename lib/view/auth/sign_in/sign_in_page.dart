@@ -1,14 +1,8 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:responsive/core/extensions/media_query_ext.dart';
-import 'package:responsive/core/widgets/headline_two_text.dart';
-import 'package:responsive/core/widgets/next_button.dart';
 import 'package:responsive/core/widgets/standart_padding.dart';
-import 'package:responsive/core/widgets/text_form_field.dart';
 import 'package:responsive/cubit/auth/sign_in/sign_in_state.dart';
 import 'package:responsive/helpers/alert_widget.dart';
-import 'package:responsive/helpers/loading_widget.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -26,60 +20,46 @@ class SignInPage extends StatelessWidget {
         builder: (context, state) => _scaffold(context, state));
   }
 
-  Scaffold _scaffold(BuildContext context, SignInState state) => Scaffold(
-        body: SafeArea(child: _signInForm(context, state)),
-        floatingActionButton: StandartScreenPadding(
-            child: NextButton(
-                child: state is SignInLoadingState
-                    ? const LoadingWidget()
-                    : Text("signIn".tr()),
-                onPressed: () {
-                  context.read<SignInCubit>().signIn();
-                })),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+  SafeArea _scaffold(BuildContext context, SignInState state) => SafeArea(
+        child: Scaffold(
+          backgroundColor: Color(0xff5956E9),
+          body: _signInForm(context, state),
+        ),
       );
 
   Form _signInForm(BuildContext context, SignInState state) => Form(
-        child: StandartScreenPadding(
-          child: Column(
-            children: [
-              SizedBox(
-                height: context.height * 0.05,
-              ),
-              Expanded(
-                flex: 6,
-                child: Column(
-                  children: [
-                    TextFormFieldWidget(
-                      hintText: "email".tr(),
-                      controller: context.watch<SignInCubit>().emailController,
+        child: Column(
+          children: [
+            Expanded(
+                flex: 4,
+                child: Container(
+                    decoration: const BoxDecoration(color: Color(0xff5956E9)),
+                    child: const Center(
+                        child: StandartScreenPadding(
+                      child: Text(
+                        "Wellcome back",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 70.0,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    )))),
+            Expanded(
+                flex: 7,
+                child: Container(
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                      color: Color(0xffFFFFFF),
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(20.0))),
+                  child: StandartScreenPadding(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [Text("Login")],
                     ),
-                    SizedBox(
-                      height: context.height * 0.01,
-                    ),
-                    TextFormFieldWidget(
-                        hintText: "password".tr(),
-                        controller:
-                            context.watch<SignInCubit>().passwordController),
-                  ],
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, "sign_up");
-                        },
-                        child: HeadlineTwoText(text: "signUp".tr())),
-                  ],
-                ),
-              ),
-            ],
-          ),
+                  ),
+                ))
+          ],
         ),
       );
 }
