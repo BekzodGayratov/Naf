@@ -29,7 +29,7 @@ class SignUpPage extends StatelessWidget {
         appBar: AppBar(),
         resizeToAvoidBottomInset: true,
         body: SafeArea(child: _signInForm(context, state)),
-        floatingActionButton: StandartPadding(
+        floatingActionButton: StandartScreenPadding(
             child: NextButton(
                 child: state is SignUpLoadingState
                     ? const LoadingWidget()
@@ -41,7 +41,7 @@ class SignUpPage extends StatelessWidget {
       );
 
   Form _signInForm(BuildContext context, SignUpState state) => Form(
-        child: StandartPadding(
+        child: StandartScreenPadding(
           child: Column(
             children: [
               SizedBox(

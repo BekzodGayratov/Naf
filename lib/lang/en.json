@@ -25,5 +25,7 @@
     "fullName":"Full name",
     "name":"Name",
     "ok":"Confirm",
-    "notFilled":"Do not empty"
+    "notFilled":"Do not empty",
+    "start":"Get started",
+    "findGadget":"Find your gadgets"
 }

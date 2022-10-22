@@ -28,7 +28,7 @@ class SignInPage extends StatelessWidget {
 
   Scaffold _scaffold(BuildContext context, SignInState state) => Scaffold(
         body: SafeArea(child: _signInForm(context, state)),
-        floatingActionButton: StandartPadding(
+        floatingActionButton: StandartScreenPadding(
             child: NextButton(
                 child: state is SignInLoadingState
                     ? const LoadingWidget()
@@ -40,7 +40,7 @@ class SignInPage extends StatelessWidget {
       );
 
   Form _signInForm(BuildContext context, SignInState state) => Form(
-        child: StandartPadding(
+        child: StandartScreenPadding(
           child: Column(
             children: [
               SizedBox(

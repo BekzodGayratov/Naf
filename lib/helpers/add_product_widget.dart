@@ -20,7 +20,7 @@ showAddProductModelSheet(BuildContext context) {
           decoration: const BoxDecoration(
               borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
               color: NafTheme.backgroundColor),
-          child: StandartPadding(
+          child: StandartScreenPadding(
             child: Form(
               key: context.watch<HomeCubit>().formKey,
               child: Column(

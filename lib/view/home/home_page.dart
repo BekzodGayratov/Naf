@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
   Widget _body(BuildContext context) {
     return Column(
       children: [
-        StandartPadding(
+        StandartScreenPadding(
           child: SearchTextFormWidget(
             prefixIcon: const Icon(
               Icons.search,
