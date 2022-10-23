@@ -27,5 +27,8 @@
     "ok":"Tasdiqlash",
     "notFilled":"Bo'sh qoldirmang",
     "start":"Boshlash",
-    "findGadget":"Gadjetingizni toping"
+    "findGadget":"Gadjetingizni toping",
+    "wellcome":"Xush kelibsiz",
+    "forgotPass":"Parolni unutdingizmi?"
+
 }

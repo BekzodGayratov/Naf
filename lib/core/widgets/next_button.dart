@@ -15,13 +15,13 @@ class NextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: context.height * 0.06,
+      height: context.height * 0.08,
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
             backgroundColor: backgroundColor ?? NafTheme.itemColor,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0))),
+                borderRadius: BorderRadius.circular(10.0))),
         onPressed: onPressed,
         child: child,
       ),

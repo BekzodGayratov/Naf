@@ -27,5 +27,7 @@
     "ok":"Confirm",
     "notFilled":"Do not empty",
     "start":"Get started",
-    "findGadget":"Find your gadgets"
+    "findGadget":"Find your gadgets",
+    "wellcome":"Wellcome back",
+    "forgotPass":"Forgot password?"
 }

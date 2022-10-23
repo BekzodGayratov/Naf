@@ -5,7 +5,10 @@ class NafTheme {
   static const Color iconColor = Color(0xff5956E9);
   static const Color backgroundColor = Color(0xffE5E5E5);
   static ThemeData them = ThemeData(
+    iconTheme: const IconThemeData(color: Color(0xff868686)),
     scaffoldBackgroundColor: const Color(0xffE5E5E5),
+    textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(foregroundColor: iconColor)),
     appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,

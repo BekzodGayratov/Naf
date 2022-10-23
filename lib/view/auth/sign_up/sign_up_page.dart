@@ -2,12 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive/core/extensions/media_query_ext.dart';
+import 'package:responsive/core/widgets/loading_widget.dart';
 import 'package:responsive/core/widgets/next_button.dart';
 import 'package:responsive/core/widgets/standart_padding.dart';
 import 'package:responsive/core/widgets/text_form_field.dart';
 import 'package:responsive/cubit/auth/sign_up/sign_up_state.dart';
 import 'package:responsive/helpers/alert_widget.dart';
-import 'package:responsive/helpers/loading_widget.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
