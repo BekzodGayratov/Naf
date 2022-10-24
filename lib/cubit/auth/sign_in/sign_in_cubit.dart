@@ -5,7 +5,6 @@ class SignInCubit extends Cubit<SignInState> {
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
- 
 
   void signIn() async {
     emit(SignInLoadingState());

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive/core/constants/theme.dart';
 import 'package:responsive/core/extensions/media_query_ext.dart';
+import 'package:responsive/core/widgets/next_button.dart';
 import 'package:responsive/core/widgets/standart_padding.dart';
 import 'package:responsive/core/widgets/text_form_field.dart';
 import 'package:responsive/cubit/home/home_cubit.dart';
@@ -51,7 +52,10 @@ showAddProductModelSheet(BuildContext context) {
                             builder: (context) => const ImagePickerWidget(),
                           );
                         },
-                        icon: const Icon(Icons.image)),
+                        icon: const Icon(
+                          Icons.image,
+                          color: NafTheme.iconColor,
+                        )),
                     hintText: "productDesc".tr(),
                     controller:
                         context.watch<HomeCubit>().productDescController,
@@ -80,32 +84,36 @@ showAddProductModelSheet(BuildContext context) {
                     },
                   ),
                   SizedBox(
-                    height: context.height * 0.01,
+                    height: context.height * 0.03,
                   ),
-                  ElevatedButton(
-                      onPressed: () {
-                        if (BlocProvider.of<HomeCubit>(context, listen: false)
-                            .formKey
-                            .currentState!
-                            .validate()) {
-                          FirestoreService.writeData(
-                              productName: BlocProvider.of<HomeCubit>(context,
-                                      listen: false)
-                                  .productNameController
-                                  .text,
-                              productDesc: BlocProvider.of<HomeCubit>(context,
-                                      listen: false)
-                                  .productDescController
-                                  .text,
-                              productCost: BlocProvider.of<HomeCubit>(context,
-                                      listen: false)
-                                  .productCostController
-                                  .text,
-                              productImagePath:
-                                  FirebaseStorageService.uploadedFilePath);
-                        }
-                      },
-                      child: Text("upload".tr()))
+                  NextButton(
+                    backgroundColor: NafTheme.iconColor,
+                    onPressed: () {
+                      if (BlocProvider.of<HomeCubit>(context, listen: false)
+                          .formKey
+                          .currentState!
+                          .validate()) {
+                        FirestoreService.writeData(
+                            productName: BlocProvider.of<HomeCubit>(context,
+                                    listen: false)
+                                .productNameController
+                                .text,
+                            productDesc: BlocProvider.of<HomeCubit>(context,
+                                    listen: false)
+                                .productDescController
+                                .text,
+                            productCost: BlocProvider.of<HomeCubit>(context,
+                                    listen: false)
+                                .productCostController
+                                .text,
+                            productImagePath:
+                                FirebaseStorageService.uploadedFilePath);
+                      }
+                    },
+                    child: Text(
+                      "upload".tr(),
+                    ),
+                  )
                 ],
               ),
             ),

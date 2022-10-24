@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive/core/constants/theme.dart';
 import 'package:responsive/core/extensions/media_query_ext.dart';
-import 'package:responsive/core/widgets/headline_two_text.dart';
 import 'package:responsive/core/widgets/loading_widget.dart';
 import 'package:responsive/core/widgets/next_button.dart';
 import 'package:responsive/core/widgets/standart_padding.dart';
@@ -130,17 +129,19 @@ class _SignInPageState extends State<SignInPage> {
                           ),
                           NextButton(
                               backgroundColor: NafTheme.iconColor,
-                              child: Text(
-                                "signIn".tr(),
-                                style: const TextStyle(fontSize: 18.0),
-                              ),
+                              child: state is SignInLoadingState
+                                  ? const LoadingWidget()
+                                  : Text(
+                                      "signIn".tr(),
+                                      style: const TextStyle(fontSize: 18.0),
+                                    ),
                               onPressed: () {
                                 context.read<SignInCubit>().signIn();
                               }),
                           Center(
                             child: TextButton(
                                 onPressed: () {
-                                  // Forgot password logic...
+                                  Navigator.pushNamed(context, 'sign_up');
                                 },
                                 child: Text("signUp".tr())),
                           ),
