@@ -12,7 +12,7 @@ class RouterGenerator {
   Route? onGenerate(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return navigate(const HomePage());
+        return navigate(HomePage());
       case 'splash':
         return navigate(const SplashScreen());
       case 'sign_in':
