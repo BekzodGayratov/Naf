@@ -8,7 +8,6 @@ import 'package:responsive/core/widgets/search_text_form_widget.dart';
 import 'package:responsive/core/widgets/standart_padding.dart';
 import 'package:responsive/cubit/home/home_cubit.dart';
 import 'package:responsive/cubit/home/home_state.dart';
-import 'package:responsive/helpers/add_product_widget.dart';
 import 'package:responsive/view/home/utils/drawer_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -22,18 +21,9 @@ class HomePage extends StatelessWidget {
 
   Widget _scaffold(BuildContext context, HomeState state) => Scaffold(
         drawer: DrawerWidget(),
-        appBar: AppBar(),
-        body: _body(context),
-        floatingActionButton: FloatingActionButton(onPressed: () {
-          showAddProductModelSheet(context);
-        }),
-      );
-
-  Widget _body(BuildContext context) {
-    return Column(
-      children: [
-        StandartScreenPadding(
-          child: SearchTextFormWidget(
+        appBar: AppBar(
+          toolbarHeight: context.height * 0.08,
+          title: SearchTextFormWidget(
             prefixIcon: const Icon(
               Icons.search,
               color: Color(0xffCCCDD6),
@@ -41,6 +31,12 @@ class HomePage extends StatelessWidget {
             hintText: "search".tr(),
           ),
         ),
+        body: _body(context),
+      );
+
+  Widget _body(BuildContext context) {
+    return Column(
+      children: [
         SizedBox(
           height: context.height * 0.05,
         ),

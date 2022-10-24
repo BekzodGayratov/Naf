@@ -29,6 +29,9 @@
     "start":"Boshlash",
     "findGadget":"Gadjetingizni toping",
     "wellcome":"Xush kelibsiz",
-    "forgotPass":"Parolni unutdingizmi?"
+    "forgotPass":"Parolni unutdingizmi?",
+    "profile":"Profil",
+    "myProfile":"Mening profilm"
+
 
 }

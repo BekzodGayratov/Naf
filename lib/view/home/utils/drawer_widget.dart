@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class DrawerWidget extends StatelessWidget {
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.white,
                 backgroundImage: _user.currentUser!.photoURL != null
-                    ? NetworkImage(_user.currentUser!.photoURL!)
+                    ? CachedNetworkImageProvider(_user.currentUser!.photoURL!)
                     : null,
                 child: _user.currentUser!.photoURL == null
                     ? Text(
@@ -32,7 +33,20 @@ class DrawerWidget extends StatelessWidget {
                   FirebaseAuth.instance.currentUser!.displayName ??
                       "fullName".tr()),
               accountEmail:
-                  Text(FirebaseAuth.instance.currentUser!.email.toString()))
+                  Text(FirebaseAuth.instance.currentUser!.email.toString())),
+          ListTile(
+            onTap: () {
+              Navigator.pushNamed(context, 'profile');
+            },
+            leading: const Icon(
+              Icons.person_outline,
+              color: NafTheme.iconColor,
+            ),
+            title: Text(
+              "profile".tr(),
+              style: const TextStyle(color: NafTheme.iconColor),
+            ),
+          ),
         ],
       ),
     );

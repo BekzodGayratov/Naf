@@ -49,7 +49,7 @@ showAddProductModelSheet(BuildContext context) {
                         onPressed: () {
                           showDialog(
                             context: context,
-                            builder: (context) => const ImagePickerWidget(),
+                            builder: (context) => const ImagePickerWidget(imageCategoryPath: "products"),
                           );
                         },
                         icon: const Icon(

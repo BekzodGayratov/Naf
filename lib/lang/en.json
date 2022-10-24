@@ -29,5 +29,7 @@
     "start":"Get started",
     "findGadget":"Find your gadgets",
     "wellcome":"Wellcome back",
-    "forgotPass":"Forgot password?"
+    "forgotPass":"Forgot password?",
+    "profile":"Profile",
+    "myProfile":"My profile"
 }

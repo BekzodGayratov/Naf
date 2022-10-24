@@ -6,7 +6,7 @@ class NafTheme {
   static const Color backgroundColor = Color(0xffE5E5E5);
   static ThemeData them = ThemeData(
     iconTheme: const IconThemeData(color: Color(0xff868686)),
-    scaffoldBackgroundColor: const Color(0xffE5E5E5),
+    scaffoldBackgroundColor: const Color(0xffF5F5F8),
     textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(foregroundColor: iconColor)),
     appBarTheme: const AppBarTheme(
@@ -23,6 +23,11 @@ class NafTheme {
       headline2: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w600,
+        color: Color(0xff000000),
+      ),
+      headline3: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
         color: Color(0xff000000),
       ),
     ),

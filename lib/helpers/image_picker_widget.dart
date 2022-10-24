@@ -1,15 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:responsive/cubit/home/home_cubit.dart';
+import 'package:responsive/core/constants/theme.dart';
+import 'package:responsive/core/widgets/next_button.dart';
 import 'package:responsive/service/local/image_picker_service.dart';
 import 'package:responsive/service/remote/firebase_storage_service.dart';
-import 'package:responsive/service/remote/firestore_service.dart';
 
 class ImagePickerWidget extends StatefulWidget {
-  const ImagePickerWidget({
-    Key? key,
-  }) : super(key: key);
+  final String imageCategoryPath;
+  const ImagePickerWidget({Key? key, required this.imageCategoryPath})
+      : super(key: key);
 
   @override
   State<ImagePickerWidget> createState() => _ImagePickerWidgetState();
@@ -59,19 +58,16 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
                       ))
                 ],
               )
-            : ElevatedButton(
+            : NextButton(
+              backgroundColor: NafTheme.iconColor,
                 onPressed: () async {
                   Navigator.pop(context);
                   await FirebaseStorageService.uploadFile(
-                      ImagePickerService.selectedImage!, "products");
+                      ImagePickerService.selectedImage!,
+                      widget.imageCategoryPath);
                 },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.upload_file_outlined),
-                    Text("ok".tr()),
-                  ],
-                )),
+                child: Text("ok".tr()),
+              )
       ],
     );
   }
