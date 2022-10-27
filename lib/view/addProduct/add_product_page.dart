@@ -8,6 +8,8 @@ import 'package:responsive/core/widgets/next_button.dart';
 import 'package:responsive/core/widgets/standart_padding.dart';
 import 'package:responsive/core/widgets/text_form_field.dart';
 import 'package:responsive/cubit/addProduct/add_product_state.dart';
+import 'package:responsive/service/local/image_picker_service.dart';
+import 'package:responsive/service/remote/firebase_storage_service.dart';
 
 class AddProductWidget extends StatelessWidget {
   const AddProductWidget({super.key});
@@ -103,8 +105,10 @@ class AddProductWidget extends StatelessWidget {
               children: [
                 NextButton(
                   backgroundColor: NafTheme.iconColor,
-                  onPressed: () {
-                    context.read<AddProductCubit>().writeData();
+                  onPressed: () async {
+                    await context.read<AddProductCubit>().uploadImage().then((value) {
+                      context.read<AddProductCubit>().writeData();
+                    });
                   },
                   child: state is AddProductLoadingState
                       ? const LoadingWidget()

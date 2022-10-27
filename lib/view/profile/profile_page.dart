@@ -49,10 +49,12 @@ class ProfilePage extends StatelessWidget {
                         child: GestureDetector(
                           onTap: () {
                             showDialog(
-                                context: context,
-                                builder: (context) => const ImagePickerWidget(
-                                    imageCategoryPath: "profilePic")).then(
-                                (value) {
+                                    context: context,
+                                    builder: (context) =>
+                                        const ImagePickerWidget())
+                                .then((value) async {
+                              await EditProfileService.uploadFile(
+                                  ImagePickerService.selectedImage!);
                               EditProfileService.editProfilePicture();
                             });
                           },

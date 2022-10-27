@@ -1,4 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive/core/constants/theme.dart';
@@ -6,6 +8,9 @@ import 'package:responsive/core/extensions/media_query_ext.dart';
 import 'package:responsive/core/widgets/search_text_form_widget.dart';
 import 'package:responsive/cubit/home/home_cubit.dart';
 import 'package:responsive/cubit/home/home_state.dart';
+import 'package:responsive/helpers/alert_widget.dart';
+import 'package:responsive/service/remote/firebase_storage_service.dart';
+import 'package:responsive/service/remote/firestore_service.dart';
 import 'package:responsive/view/addProduct/add_product_page.dart';
 import 'package:responsive/view/cart/cart_page.dart';
 import 'package:responsive/view/favorites/favorites_page.dart';
@@ -69,5 +74,8 @@ class _HomePageState extends State<HomePage> {
               BottomNavigationBarItem(
                   icon: Icon(Icons.sell_outlined), label: ""),
             ]),
+        floatingActionButton: FloatingActionButton(onPressed: () async {
+          
+        }),
       );
 }

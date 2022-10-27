@@ -14,9 +14,15 @@ class AddProductCubit extends Cubit<AddProductState> {
   void addProductImage(BuildContext context) async {
     return showDialog(
       context: context,
-      builder: (context) =>
-          const ImagePickerWidget(imageCategoryPath: "products"),
+      builder: (context) => const ImagePickerWidget(),
     );
+  }
+
+  Future<void> uploadImage() async {
+    emit(AddProductLoadingState());
+    await FirebaseStorageService.uploadFile(
+        ImagePickerService.selectedImage!, "products");
+    emit(AddProductCompleteState());
   }
 
   void writeData() async {

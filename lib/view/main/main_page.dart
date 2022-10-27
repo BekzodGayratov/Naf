@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive/core/extensions/media_query_ext.dart';
 import 'package:responsive/cubit/home/home_cubit.dart';
+import 'package:responsive/helpers/image_viewer_widget.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -96,19 +97,27 @@ class MainPage extends StatelessWidget {
                         Positioned(
                             left: 0,
                             right: 0,
-                            child: CircleAvatar(
-                              radius: 70,
-                              backgroundImage: data[index]['image'] != null
-                                  ? CachedNetworkImageProvider(
-                                      data[index]['image'])
-                                  : null,
-                              child: (data[index]['image'] == null ||
-                                      data[index]['image'].toString().isEmpty)
-                                  ? Image.asset(
-                                      "assets/product/noImage.jpg",
-                                      fit: BoxFit.cover,
-                                    )
-                                  : null,
+                            child: GestureDetector(
+                              onTap: () {
+                                if (data[index]['image'] != null) {
+                                  showImageDialog(
+                                      context, data[index]['image']);
+                                }
+                              },
+                              child: CircleAvatar(
+                                radius: 70,
+                                backgroundImage: data[index]['image'] != null
+                                    ? CachedNetworkImageProvider(
+                                        data[index]['image'])
+                                    : null,
+                                child: (data[index]['image'] == null ||
+                                        data[index]['image'].toString().isEmpty)
+                                    ? Image.asset(
+                                        "assets/product/noImage.jpg",
+                                        fit: BoxFit.cover,
+                                      )
+                                    : null,
+                              ),
                             ))
                       ],
                     );

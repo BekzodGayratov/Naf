@@ -7,9 +7,7 @@ import 'package:responsive/service/local/image_picker_service.dart';
 import 'package:responsive/service/remote/firebase_storage_service.dart';
 
 class ImagePickerWidget extends StatefulWidget {
-  final String imageCategoryPath;
-  const ImagePickerWidget({Key? key, required this.imageCategoryPath})
-      : super(key: key);
+  const ImagePickerWidget({Key? key}) : super(key: key);
 
   @override
   State<ImagePickerWidget> createState() => _ImagePickerWidgetState();
@@ -17,6 +15,12 @@ class ImagePickerWidget extends StatefulWidget {
 
 class _ImagePickerWidgetState extends State<ImagePickerWidget> {
   bool isUploaded = false;
+
+  @override
+  void initState() {
+    ImagePickerService.selectedImage = null;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,32 +66,11 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
             : NextButton(
                 backgroundColor: NafTheme.iconColor,
                 onPressed: () async {
-                  showDialog(
-                      barrierDismissible: false,
-                      context: context,
-                      builder: (context) {
-                        return const AlertDialog(
-                          title: Center(child: LoadingWidget()),
-                        );
-                      });
-
-                  await FirebaseStorageService.uploadFile(
-                      ImagePickerService.selectedImage!,
-                      widget.imageCategoryPath);
-                  Future.delayed(Duration.zero).then((value) {
-                    Navigator.pop(context);
-                    Navigator.pop(context);
-                  });
+                  Navigator.pop(context);
                 },
                 child: Text("ok".tr()),
               )
       ],
     );
-  }
-
-  @override
-  void dispose() {
-    ImagePickerService.selectedImage = null;
-    super.dispose();
   }
 }
