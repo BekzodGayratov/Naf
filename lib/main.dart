@@ -1,3 +1,4 @@
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:responsive/cubit/addProduct/add_product_state.dart';
 import 'package:responsive/cubit/auth/sign_in/sign_in_state.dart';
 import 'package:responsive/cubit/auth/sign_up/sign_up_state.dart';
 import 'package:responsive/cubit/home/home_cubit.dart';
+import 'package:responsive/cubit/profile/profile_state.dart';
 import 'package:responsive/router/router.dart';
 
 void main() async {
@@ -20,6 +22,7 @@ void main() async {
         BlocProvider(create: (context) => SignInCubit()),
         BlocProvider(create: (context) => SignUpCubit()),
         BlocProvider(create: (context) => AddProductCubit()),
+        BlocProvider(create: (context) => ProfileCubit())
       ],
       child: EasyLocalization(
           saveLocale: true,

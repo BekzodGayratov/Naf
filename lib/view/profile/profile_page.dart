@@ -3,21 +3,33 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive/core/extensions/media_query_ext.dart';
 import 'package:responsive/core/widgets/head_one_text.dart';
-import 'package:responsive/core/widgets/headline_three_text.dart';
 import 'package:responsive/core/widgets/headline_two_text.dart';
-import 'package:responsive/core/widgets/next_button.dart';
 import 'package:responsive/core/widgets/standart_padding.dart';
+import 'package:responsive/core/widgets/text_form_field.dart';
+import 'package:responsive/cubit/profile/profile_state.dart';
 import 'package:responsive/helpers/image_picker_widget.dart';
 import 'package:responsive/service/local/image_picker_service.dart';
 import 'package:responsive/service/remote/edit_profile_service.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
   @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  bool _isTapped = false;
+  @override
   Widget build(BuildContext context) {
+    return BlocBuilder<ProfileCubit, ProfileState>(
+        builder: (context, state) => _scaffold(context, state));
+  }
+
+  Scaffold _scaffold(BuildContext context, ProfileState state) {
     return Scaffold(
       appBar: AppBar(),
       body: StandartScreenPadding(
@@ -80,6 +92,9 @@ class ProfilePage extends StatelessWidget {
                           ),
                         ),
                       ),
+                      SizedBox(
+                        height: context.height * 0.01,
+                      ),
                       Center(
                           child: HeadlineTwoText(
                               text: FirebaseAuth
@@ -87,9 +102,37 @@ class ProfilePage extends StatelessWidget {
                                   .toString())),
                     ],
                   ),
-                )
+                ),
               ],
-            )
+            ),
+            SizedBox(
+              height: context.height * 0.02,
+            ),
+            Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(25.0)),
+                child: TextFormFieldWidget(
+                  maxLine: 1,
+                  controller: context.watch<ProfileCubit>().nameController,
+                  onChanged: (v) {
+                    setState(() {
+                      _isTapped = true;
+                    });
+                  },
+                  suffixIcon: IconButton(
+                      highlightColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      onPressed: () {
+                        context.read<ProfileCubit>().updateName();
+                        setState(() {
+                          _isTapped = false;
+                        });
+                      },
+                      icon: _isTapped == true
+                          ? const Icon(Icons.check)
+                          : const SizedBox()),
+                )),
           ],
         ),
       ),

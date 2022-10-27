@@ -32,5 +32,5 @@
     "forgotPass":"Forgot password?",
     "profile":"Profile",
     "myProfile":"My profile",
-    "serverErr":"Server error"
+    "serverErr":"Server error","logout": "Sign out"
 }

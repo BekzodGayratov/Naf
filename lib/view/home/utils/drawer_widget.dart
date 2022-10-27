@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive/core/constants/theme.dart';
 import 'package:responsive/helpers/image_viewer_widget.dart';
@@ -53,6 +54,22 @@ class DrawerWidget extends StatelessWidget {
             ),
             title: Text(
               "profile".tr(),
+              style: const TextStyle(color: NafTheme.iconColor),
+            ),
+          ),
+          ListTile(
+            onTap: () async {
+              await FirebaseAuth.instance.signOut().then((value) {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, 'sign_in', (route) => false);
+              });
+            },
+            leading: const Icon(
+              Icons.logout,
+              color: NafTheme.iconColor,
+            ),
+            title: Text(
+              "logout".tr(),
               style: const TextStyle(color: NafTheme.iconColor),
             ),
           ),

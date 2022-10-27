@@ -32,7 +32,8 @@
     "forgotPass":"Parolni unutdingizmi?",
     "profile":"Profil",
     "myProfile":"Mening profilm",
-    "serverErr":"Server xatosi"
+    "serverErr":"Server xatosi",
+    "logout": "Chiqish"
 
 
 }

@@ -26,8 +26,7 @@ class AddProductCubit extends Cubit<AddProductState> {
   }
 
   void writeData() async {
-    if (formKey.currentState!.validate()) {
-      emit(AddProductLoadingState());
+    emit(AddProductLoadingState());
       await FirestoreService.writeData(
           productName: productNameController.text,
           productDesc: productDescController.text,
@@ -35,7 +34,6 @@ class AddProductCubit extends Cubit<AddProductState> {
           productImagePath: FirebaseStorageService.uploadedFilePath);
 
       emit(AddProductCompleteState());
-    }
   }
 
   deavtiveFields() {

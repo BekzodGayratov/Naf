@@ -101,12 +101,17 @@ class _AddProductWidgetState extends State<AddProductWidget> {
               NextButton(
                 backgroundColor: NafTheme.iconColor,
                 onPressed: () async {
-                  await context
-                      .read<AddProductCubit>()
-                      .uploadImage()
-                      .then((value) {
-                    context.read<AddProductCubit>().writeData();
-                  });
+                  if (BlocProvider.of<AddProductCubit>(context, listen: false)
+                      .formKey
+                      .currentState!
+                      .validate()) {
+                    await context
+                        .read<AddProductCubit>()
+                        .uploadImage()
+                        .then((value) {
+                      context.read<AddProductCubit>().writeData();
+                    });
+                  }
                 },
                 child: state is AddProductLoadingState
                     ? const LoadingWidget()

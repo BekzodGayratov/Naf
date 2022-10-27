@@ -12,11 +12,13 @@ class TextFormFieldWidget extends StatelessWidget {
   final Widget? prefixIcon;
   final String? labelText;
   final bool? obscureText;
+  final VoidCallback? onTap;
   final String? Function(String?)? validator;
 
   const TextFormFieldWidget({
     super.key,
     required this.controller,
+    this.onTap,
     this.textInputType,
     this.hintText,
     this.onChanged,
@@ -32,6 +34,7 @@ class TextFormFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: onTap,
       obscureText: obscureText ?? false,
       validator: validator,
       maxLines: maxLine,
