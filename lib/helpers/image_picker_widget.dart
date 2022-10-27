@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive/core/constants/theme.dart';
+import 'package:responsive/core/widgets/loading_widget.dart';
 import 'package:responsive/core/widgets/next_button.dart';
 import 'package:responsive/service/local/image_picker_service.dart';
 import 'package:responsive/service/remote/firebase_storage_service.dart';
@@ -59,12 +60,24 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
                 ],
               )
             : NextButton(
-              backgroundColor: NafTheme.iconColor,
+                backgroundColor: NafTheme.iconColor,
                 onPressed: () async {
-                  Navigator.pop(context);
+                  showDialog(
+                      barrierDismissible: false,
+                      context: context,
+                      builder: (context) {
+                        return const AlertDialog(
+                          title: Center(child: LoadingWidget()),
+                        );
+                      });
+
                   await FirebaseStorageService.uploadFile(
                       ImagePickerService.selectedImage!,
                       widget.imageCategoryPath);
+                  Future.delayed(Duration.zero).then((value) {
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                  });
                 },
                 child: Text("ok".tr()),
               )

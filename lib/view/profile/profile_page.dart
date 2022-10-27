@@ -78,18 +78,11 @@ class ProfilePage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const Center(child: HeadlineTwoText(text: "Rosina Doe")),
-                      Padding(
-                        padding: EdgeInsets.symmetric(),
-                        child: ListTile(
-                            style: ListTileStyle.drawer,
-                            leading: Icon(Icons.location_on_outlined),
-                            title: HeadlineThreeText(
-                                textOverflow: TextOverflow.fade,
-                                maxLine: 3,
-                                textAlign: TextAlign.start,
-                                text: "Firebase location")),
-                      )
+                      Center(
+                          child: HeadlineTwoText(
+                              text: FirebaseAuth
+                                  .instance.currentUser!.displayName
+                                  .toString())),
                     ],
                   ),
                 )

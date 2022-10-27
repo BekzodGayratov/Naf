@@ -7,7 +7,7 @@ import 'package:responsive/core/extensions/media_query_ext.dart';
 import 'package:responsive/cubit/home/home_cubit.dart';
 
 class MainPage extends StatelessWidget {
-  MainPage({super.key});
+  const MainPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,6 +18,7 @@ class MainPage extends StatelessWidget {
         SizedBox(
           height: context.height * 0.38,
           child: StreamBuilder<QuerySnapshot>(
+              key: const PageStorageKey<String>("mainPage"),
               stream: context.watch<HomeCubit>().productsStream,
               builder: (BuildContext context,
                   AsyncSnapshot<QuerySnapshot> snapshot) {

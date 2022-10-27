@@ -6,7 +6,7 @@ import 'package:responsive/core/extensions/media_query_ext.dart';
 import 'package:responsive/core/widgets/search_text_form_widget.dart';
 import 'package:responsive/cubit/home/home_cubit.dart';
 import 'package:responsive/cubit/home/home_state.dart';
-import 'package:responsive/helpers/add_product_widget.dart';
+import 'package:responsive/view/addProduct/add_product_page.dart';
 import 'package:responsive/view/cart/cart_page.dart';
 import 'package:responsive/view/favorites/favorites_page.dart';
 import 'package:responsive/view/home/utils/drawer_widget.dart';
