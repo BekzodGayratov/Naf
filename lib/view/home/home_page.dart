@@ -25,12 +25,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Widget> _screens = [
-    MainPage(),
-    FavoritesPage(),
-    CartPage(),
-    AddProductWidget()
-  ];
+  final List<Widget> _screens = [MainPage(), AddProductWidget()];
 
   int _currentIndex = 0;
 
@@ -41,6 +36,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _scaffold(BuildContext context, HomeState state) => Scaffold(
+        resizeToAvoidBottomInset: true,
         drawer: DrawerWidget(),
         appBar: AppBar(
           toolbarHeight: context.height * 0.08,
@@ -68,14 +64,7 @@ class _HomePageState extends State<HomePage> {
               BottomNavigationBarItem(
                   icon: Icon(Icons.home_outlined), label: ""),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.favorite_border_outlined), label: ""),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.shopping_cart_outlined), label: ""),
-              BottomNavigationBarItem(
                   icon: Icon(Icons.sell_outlined), label: ""),
             ]),
-        floatingActionButton: FloatingActionButton(onPressed: () async {
-          
-        }),
       );
 }

@@ -8,11 +8,20 @@ import 'package:responsive/core/widgets/next_button.dart';
 import 'package:responsive/core/widgets/standart_padding.dart';
 import 'package:responsive/core/widgets/text_form_field.dart';
 import 'package:responsive/cubit/addProduct/add_product_state.dart';
-import 'package:responsive/service/local/image_picker_service.dart';
-import 'package:responsive/service/remote/firebase_storage_service.dart';
 
-class AddProductWidget extends StatelessWidget {
+class AddProductWidget extends StatefulWidget {
   const AddProductWidget({super.key});
+
+  @override
+  State<AddProductWidget> createState() => _AddProductWidgetState();
+}
+
+class _AddProductWidgetState extends State<AddProductWidget> {
+  @override
+  void initState() {
+    context.read<AddProductCubit>().deavtiveFields();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,89 +44,77 @@ class AddProductWidget extends StatelessWidget {
           SizedBox(
             height: context.height * 0.02,
           ),
-          Expanded(
-            flex: 1,
-            child: TextFormFieldWidget(
-              hintText: "productName".tr(),
-              controller:
-                  context.watch<AddProductCubit>().productNameController,
-              validator: (v) {
-                if (v!.isEmpty) {
-                  return "notFilled".tr();
-                } else {
-                  return null;
-                }
-              },
-            ),
+          TextFormFieldWidget(
+            hintText: "productName".tr(),
+            controller: context.watch<AddProductCubit>().productNameController,
+            validator: (v) {
+              if (v!.isEmpty) {
+                return "notFilled".tr();
+              } else {
+                return null;
+              }
+            },
           ),
           SizedBox(
             height: context.height * 0.02,
           ),
-          Expanded(
-            flex: 1,
-            child: TextFormFieldWidget(
-              maxLine: 10,
-              suffixIcon: IconButton(
-                  onPressed: () {
-                    context.read<AddProductCubit>().addProductImage(context);
-                  },
-                  icon: const Icon(
-                    Icons.image,
-                    color: NafTheme.iconColor,
-                  )),
-              hintText: "productDesc".tr(),
-              controller:
-                  context.watch<AddProductCubit>().productDescController,
-              validator: (v) {
-                if (v!.isEmpty) {
-                  return "notFilled".tr();
-                } else {
-                  return null;
-                }
-              },
-            ),
+          TextFormFieldWidget(
+            maxLine: 8,
+            suffixIcon: IconButton(
+                onPressed: () {
+                  context.read<AddProductCubit>().addProductImage(context);
+                },
+                icon: const Icon(
+                  Icons.image,
+                  color: NafTheme.iconColor,
+                )),
+            hintText: "productDesc".tr(),
+            controller: context.watch<AddProductCubit>().productDescController,
+            validator: (v) {
+              if (v!.isEmpty) {
+                return "notFilled".tr();
+              } else {
+                return null;
+              }
+            },
           ),
           SizedBox(
             height: context.height * 0.02,
           ),
-          Expanded(
-            flex: 1,
-            child: TextFormFieldWidget(
-              textInputType: TextInputType.number,
-              hintText: "productCost".tr(),
-              controller:
-                  context.watch<AddProductCubit>().productCostController,
-              validator: (v) {
-                if (v!.isEmpty) {
-                  return "notFilled".tr();
-                } else {
-                  return null;
-                }
-              },
-            ),
+          TextFormFieldWidget(
+            textInputType: TextInputType.number,
+            hintText: "productCost".tr(),
+            controller: context.watch<AddProductCubit>().productCostController,
+            validator: (v) {
+              if (v!.isEmpty) {
+                return "notFilled".tr();
+              } else {
+                return null;
+              }
+            },
           ),
           SizedBox(
             height: context.height * 0.03,
           ),
-          Expanded(
-            flex: 3,
-            child: Column(
-              children: [
-                NextButton(
-                  backgroundColor: NafTheme.iconColor,
-                  onPressed: () async {
-                    await context.read<AddProductCubit>().uploadImage().then((value) {
-                      context.read<AddProductCubit>().writeData();
-                    });
-                  },
-                  child: state is AddProductLoadingState
-                      ? const LoadingWidget()
-                      : Text(
-                          "upload".tr(),
-                        ),
-                ),
-              ],
-            ),
+          Column(
+            children: [
+              NextButton(
+                backgroundColor: NafTheme.iconColor,
+                onPressed: () async {
+                  await context
+                      .read<AddProductCubit>()
+                      .uploadImage()
+                      .then((value) {
+                    context.read<AddProductCubit>().writeData();
+                  });
+                },
+                child: state is AddProductLoadingState
+                    ? const LoadingWidget()
+                    : Text(
+                        "upload".tr(),
+                      ),
+              ),
+            ],
           )
         ],
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive/view/auth/sign_in/sign_in_page.dart';
 import 'package:responsive/view/auth/sign_up/sign_up_page.dart';
 import 'package:responsive/view/home/home_page.dart';
+import 'package:responsive/view/info/info_page.dart';
 import 'package:responsive/view/profile/profile_page.dart';
 import 'package:responsive/view/splash/splash_screen.dart';
 
@@ -21,6 +22,8 @@ class RouterGenerator {
         return navigate(const SignUpPage());
       case 'profile':
         return navigate(ProfilePage());
+      case 'info':
+        return navigate(InfoPage(details: settings.arguments as Map<String,dynamic> ,));
     }
     return null;
   }

@@ -37,4 +37,10 @@ class AddProductCubit extends Cubit<AddProductState> {
       emit(AddProductCompleteState());
     }
   }
+
+  deavtiveFields() {
+    productNameController.clear();
+    productDescController.clear();
+    productCostController.clear();
+  }
 }
