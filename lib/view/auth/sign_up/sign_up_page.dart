@@ -32,11 +32,13 @@ class _SignUpPageState extends State<SignUpPage> {
         builder: (context, state) => _scaffold(context, state));
   }
 
-  Scaffold _scaffold(BuildContext context, SignUpState state) => Scaffold(
-        backgroundColor: const Color(0xff5956E9),
-        resizeToAvoidBottomInset: true,
-        body: SafeArea(child: _signInForm(context, state)),
-      );
+  SafeArea _scaffold(BuildContext context, SignUpState state) => SafeArea(
+    child: Scaffold(
+          backgroundColor: const Color(0xff5956E9),
+          resizeToAvoidBottomInset: true,
+          body: SafeArea(child: _signInForm(context, state)),
+        ),
+  );
 
   Form _signInForm(BuildContext context, SignUpState state) => Form(
         child: Column(

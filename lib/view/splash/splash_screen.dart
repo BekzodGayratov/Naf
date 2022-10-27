@@ -12,44 +12,46 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.bottomCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color(0xff5956E9), Color(0xff5956E9)])),
-        child: StandartScreenPadding(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: context.height * 0.04,
-              ),
-              const Expanded(
-                flex: 4,
-                child: Text(
-                  "Find your gadget",
-                  style: TextStyle(
-                      fontSize: 50,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white),
-                  textAlign: TextAlign.start,
-                  overflow: TextOverflow.visible,
-                  maxLines: 2,
+      body: SafeArea(
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Color(0xff5956E9), Color(0xff5956E9)])),
+          child: StandartScreenPadding(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: context.height * 0.04,
                 ),
-              ),
-              Expanded(
-                  flex: 6,
-                  child: Image.asset(
-                    "assets/splash.png",
-                    fit: BoxFit.fitHeight,
-                  )),
-              SizedBox(
-                height: context.height * 0.1,
-              ),
-            ],
+                const Expanded(
+                  flex: 4,
+                  child: Text(
+                    "Find your gadget",
+                    style: TextStyle(
+                        fontSize: 50,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white),
+                    textAlign: TextAlign.start,
+                    overflow: TextOverflow.visible,
+                    maxLines: 2,
+                  ),
+                ),
+                Expanded(
+                    flex: 6,
+                    child: Image.asset(
+                      "assets/splash.png",
+                      fit: BoxFit.fitHeight,
+                    )),
+                SizedBox(
+                  height: context.height * 0.1,
+                ),
+              ],
+            ),
           ),
         ),
       ),

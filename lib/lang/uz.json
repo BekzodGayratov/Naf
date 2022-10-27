@@ -31,7 +31,8 @@
     "wellcome":"Xush kelibsiz",
     "forgotPass":"Parolni unutdingizmi?",
     "profile":"Profil",
-    "myProfile":"Mening profilm"
+    "myProfile":"Mening profilm",
+    "serverErr":"Server xatosi"
 
 
 }

@@ -13,10 +13,11 @@ class FirestoreService {
       required String productImagePath}) async {
     try {
       await products.add({
+        "image": productImagePath,
         "name": productName,
         "about": productDesc,
         "cost": productCost,
-        "image": productImagePath
+        "created_at": FieldValue.serverTimestamp().toString()
       });
       showNafAlert("productAdded".tr());
     } on FirebaseException catch (e) {

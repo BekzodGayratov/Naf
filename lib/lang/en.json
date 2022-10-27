@@ -31,5 +31,6 @@
     "wellcome":"Wellcome back",
     "forgotPass":"Forgot password?",
     "profile":"Profile",
-    "myProfile":"My profile"
+    "myProfile":"My profile",
+    "serverErr":"Server error"
 }

@@ -14,6 +14,8 @@ class HomeCubit extends Cubit<HomeState> {
   final formKey = GlobalKey<FormState>();
 
   // Firestore
-  final Stream<QuerySnapshot> productsStream =
-      FirebaseFirestore.instance.collection('products').snapshots();
+  final Stream<QuerySnapshot> productsStream = FirebaseFirestore.instance
+      .collection('products')
+      .orderBy('created_at')
+      .snapshots();
 }

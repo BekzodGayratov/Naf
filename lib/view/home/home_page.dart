@@ -6,6 +6,7 @@ import 'package:responsive/core/extensions/media_query_ext.dart';
 import 'package:responsive/core/widgets/search_text_form_widget.dart';
 import 'package:responsive/cubit/home/home_cubit.dart';
 import 'package:responsive/cubit/home/home_state.dart';
+import 'package:responsive/helpers/add_product_widget.dart';
 import 'package:responsive/view/cart/cart_page.dart';
 import 'package:responsive/view/favorites/favorites_page.dart';
 import 'package:responsive/view/home/utils/drawer_widget.dart';
@@ -19,7 +20,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Widget> _screens = [const MainPage(), FavoritesPage(), CartPage()];
+  final List<Widget> _screens = [
+    MainPage(),
+    FavoritesPage(),
+    CartPage(),
+    AddProductWidget()
+  ];
 
   int _currentIndex = 0;
 
@@ -60,6 +66,8 @@ class _HomePageState extends State<HomePage> {
                   icon: Icon(Icons.favorite_border_outlined), label: ""),
               BottomNavigationBarItem(
                   icon: Icon(Icons.shopping_cart_outlined), label: ""),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.sell_outlined), label: ""),
             ]),
       );
 }
