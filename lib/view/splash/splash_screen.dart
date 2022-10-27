@@ -28,11 +28,11 @@ class SplashScreen extends StatelessWidget {
                 SizedBox(
                   height: context.height * 0.04,
                 ),
-                const Expanded(
+                Expanded(
                   flex: 4,
                   child: Text(
-                    "Find your gadget",
-                    style: TextStyle(
+                    "findGadget".tr(),
+                    style: const TextStyle(
                         fontSize: 50,
                         fontWeight: FontWeight.w600,
                         color: Colors.white),

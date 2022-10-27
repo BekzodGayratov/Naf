@@ -19,6 +19,7 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   bool obscureText = false;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignInCubit, SignInState>(
@@ -26,6 +27,7 @@ class _SignInPageState extends State<SignInPage> {
           if (state is SignInErrorState) {
             showNafAlert(state.error);
           } else if (state is SignInCompleteState) {
+            context.read<SignInCubit>().deactiveFields();
             Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
           }
         },
@@ -33,12 +35,12 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   SafeArea _scaffold(BuildContext context, SignInState state) => SafeArea(
-    child: Scaffold(
+        child: Scaffold(
           resizeToAvoidBottomInset: true,
           backgroundColor: const Color(0xff5956E9),
           body: _signInForm(context, state),
         ),
-  );
+      );
 
   Form _signInForm(BuildContext context, SignInState state) => Form(
         child: Column(

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:responsive/helpers/alert_widget.dart';
 
 class FirestoreService {
@@ -17,6 +18,7 @@ class FirestoreService {
         "name": productName,
         "about": productDesc,
         "cost": productCost,
+        "email": FirebaseAuth.instance.currentUser!.email,
         "created_at": FieldValue.serverTimestamp().toString()
       });
       showNafAlert("productAdded".tr());

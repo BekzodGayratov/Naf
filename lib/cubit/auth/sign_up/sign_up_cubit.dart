@@ -27,6 +27,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   }
 
   deactiveFields() {
+    nameController.clear();
     emailController.clear();
     passwordController.clear();
   }

@@ -40,12 +40,13 @@ class _HomePageState extends State<HomePage> {
         drawer: DrawerWidget(),
         appBar: AppBar(
           toolbarHeight: context.height * 0.08,
-          title: SearchTextFormWidget(
-            prefixIcon: const Icon(
-              Icons.search,
-              color: Color(0xffCCCDD6),
-            ),
-            hintText: "search".tr(),
+          centerTitle: true,
+          title: const Text(
+            "NAF",
+            style: TextStyle(
+                fontSize: 22.0,
+                fontWeight: FontWeight.w600,
+                color: NafTheme.iconColor),
           ),
         ),
         body: _screens[_currentIndex],

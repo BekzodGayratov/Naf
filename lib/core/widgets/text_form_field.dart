@@ -34,6 +34,7 @@ class TextFormFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: const TextStyle(color: NafTheme.iconColor),
       onTap: onTap,
       obscureText: obscureText ?? false,
       validator: validator,
@@ -42,6 +43,7 @@ class TextFormFieldWidget extends StatelessWidget {
       cursorColor: NafTheme.itemColor,
       keyboardType: textInputType,
       decoration: InputDecoration(
+        
         prefixIcon: prefixIcon,
         labelText: labelText,
         labelStyle: const TextStyle(

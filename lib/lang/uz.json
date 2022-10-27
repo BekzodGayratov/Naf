@@ -33,7 +33,9 @@
     "profile":"Profil",
     "myProfile":"Mening profilm",
     "serverErr":"Server xatosi",
-    "logout": "Chiqish"
+    "logout": "Chiqish",
+    "changeLang":"Tilni o'zgartirish"
+    
 
 
 }
