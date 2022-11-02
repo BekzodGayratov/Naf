@@ -5,7 +5,7 @@ class DioConfig {
     var dio = Dio(BaseOptions(
       receiveDataWhenStatusError: true,
     ));
-    
+
     // TIME OUT
     dio.options.connectTimeout = 55 * 1000;
     dio.options.receiveTimeout = 55 * 1000;
